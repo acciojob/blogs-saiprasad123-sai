@@ -1,6 +1,7 @@
 package com.driver.controller;
 
 import com.driver.models.User;
+import com.driver.repositories.UserRepository;
 import com.driver.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,7 @@ public class UserController {
 
     @GetMapping("/find/{username}")
     public ResponseEntity<User> findUserByUsername(@PathVariable String username) {
+        User user = UserService.findUserByUsername(username);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

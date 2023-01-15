@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
+    static
     UserRepository userRepository3;
 
     @Autowired
@@ -26,7 +27,7 @@ public class UserService {
         userRepository3.save(user);
     }
 
-    public User findUserByUsername(String username){
+    public static User findUserByUsername(String username){
         return userRepository3.findByUsername(username);
     }
 }

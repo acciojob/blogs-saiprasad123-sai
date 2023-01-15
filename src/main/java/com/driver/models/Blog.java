@@ -1,5 +1,7 @@
 package com.driver.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +19,13 @@ public class Blog {
 
     private String content;
 
+    @CreationTimestamp
     private Date pubDate;
 
+    public Blog(String title, String content) {
+        this.title=title;
+        this.content=content;
+    }
 
 
     public int getBlogId() {
